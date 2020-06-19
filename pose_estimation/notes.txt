@@ -1,0 +1,21 @@
+alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/detectron2 njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
+run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/detectron2/  | while read f; do run_rsync; done
+
+Installing docker detectron:
+cd /local/data/nitthilan/source_code/virtual_studio/detectron2/docker/
+cd docker 
+sudo USER_ID=$UID docker-compose run -v /local/data/nitthilan/detectron_fvcore_model_tmp:/tmp -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder detectron2
+
+sudo nvidia-docker exec -it 277709d90c7f /bin/bash
+
+https://github.com/facebookresearch/detectron2/blob/master/projects/DensePose/doc/MODEL_ZOO.md
+https://github.com/facebookresearch/detectron2/blob/master/projects/DensePose/doc/GETTING_STARTED.md
+
+python apply_net.py show configs/densepose_rcnn_R_50_FPN_s1x.yaml model_final_0ed407.pkl /nitthilan/data/DeepFashion/inshop_cloth_retrival_benchmark/img/img/MEN/Suiting/id_00000094/02_1_front.jpg dp_contour,bbox --output image_densepose_contour.png
+
+pip install dataclasses
+
+Reference: https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5#scrollTo=roTj1N9F5uJ5
+
+Intepreting keypoints: https://github.com/facebookresearch/detectron2/issues/1373
+https://detectron2.readthedocs.io/tutorials/models.html#model-output-format

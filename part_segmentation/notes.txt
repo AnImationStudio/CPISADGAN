@@ -1,0 +1,29 @@
+
+Pytorch Implementation:
+=======================
+alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/Single-Human-Parsing-LIP njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
+run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/Single-Human-Parsing-LIP/  | while read f; do run_rsync; done
+
+https://github.com/hyk1996/Single-Human-Parsing-LIP
+
+sudo nvidia-docker run -it -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch
+
+sudo nvidia-docker exec -it afa97fdcaedf /bin/bash
+
+
+
+
+
+
+Caffe model. Not planning to use:
+=================================
+alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/LIP_SSL njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
+run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/LIP_SSL/  | while read f; do run_rsync; done
+
+https://ngc.nvidia.com/catalog/containers/nvidia:caffe - docker for caffe
+LIP_SSL model: https://drive.google.com/file/d/0BzvH3bSnp3E9eHMyVS1RbUVDems/view
+
+sudo nvidia-docker run -it -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder nvcr.io/nvidia/caffe:20.03-py3
+
+https://drive.google.com/open?id=0BzvH3bSnp3E9eHMyVS1RbUVDems - caffe model
+
