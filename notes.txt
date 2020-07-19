@@ -1,3 +1,33 @@
 alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/CPISADGAN njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
 run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/CPISADGAN/  | while read f; do run_rsync; done
 
+
+alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/ADGAN njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
+
+run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/ADGAN/  | while read f; do run_rsync; done
+
+
+
+sudo docker run --gpus all -it --shm-size=256m  -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel increased_shm /bin/bash
+
+
+sudo docker run --gpus all -it --shm-size=1024m  -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel  /bin/bash
+
+sudo docker container attach a108257e9eac
+sudo docker container attach ac7ee8358a7e
+
+
+scp -R njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/ADGAN/results/fashion_AdaGen_sty512_nres8_lre3_SS_fc_vgg_cxloss_ss_merge3/test_800/images ./
+
+
+
+rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/data/ /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data 
+
+scp /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data/bts.png njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/data/ 
+
+scp -r njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/data/bts*.png /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data/
+
+scp -r njayakodi_dg@134.121.66.109:/local/data/nitthilan/data/DeepFashion/inshop_cloth_retrival_benchmark/img/part_seg_adgan/semantic_merge3/MEN/Denim/id_00000080/* /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data/
+
+
+https://github.com/ytdl-org/youtube-dl

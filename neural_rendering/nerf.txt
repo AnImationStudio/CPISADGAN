@@ -1,0 +1,45 @@
+alias run_rsync='rsync -azP --progress --stats --exclude ".*/" --exclude ".*" --exclude "tmp/" /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/nerf-pytorch njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code/virtual_studio/'
+
+run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/nerf-pytorch/  | while read f; do run_rsync; done
+
+
+
+sudo nvidia-docker exec -it a108257e9eac /bin/bash
+
+
+sudo docker run -it -ti --runtime=nvidia -e NVIDIA_DRIVER_CAPABILITIES=compute,utility -e NVIDIA_VISIBLE_DEVICES=all -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
+
+
+sudo docker run --gpus all -it -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
+
+
+
+Issue: No such file or directory: 'cache/nerf_synthetic/lego/transforms_train.json'
+https://github.com/krrish94/nerf-pytorch/issues/8
+
+Installing latest docker version: https://github.com/NVIDIA/nvidia-docker/issues/1165
+
+https://github.com/aliutkus/torchsearchsorted - torchsearchsorted
+
+https://github.com/pytorch/vision/issues/1827
+https://askubuntu.com/questions/1060903/importerror-libgthread-2-0-so-0-cannot-open-shared-object-file-no-such-file-o
+https://unix.stackexchange.com/questions/363048/unable-to-locate-package-docker-ce-on-a-64bit-ubuntu
+https://github.com/NVIDIA/nvidia-docker/issues/1165
+https://github.com/NVIDIA/nvidia-docker
+https://stackoverflow.com/questions/57066162/how-to-get-docker-to-recognize-nvidia-drivers
+
+Things to know:
+- camera angle: https://en.wikipedia.org/wiki/Angle_of_view
+- https://stackoverflow.com/questions/6392739/what-does-the-at-symbol-do-in-python - matrix multiplication @
+
+
+
+nerf-torch train time performance:
+==================================
+Validation loss: 0.008898932486772537 Validation PSNR: 20.50662088064132 Time: 1.0831420421600342                                                  
+[TRAIN] Iter: 199999 Loss: 0.007658920716494322 PSNR: 21.1583242617621                                                                             
+[VAL] =======> Iter: 199999                                                                                                                        
+Validation loss: 0.009181689471006393 Validation PSNR: 20.37077399362298 Time: 1.057041883468628                                                   
+================== Saved Checkpoint =================                                                                                              
+100%|####################################################################################################| 200000/200000 [2:21:48<00:00, 23.50it/s]
+Done!

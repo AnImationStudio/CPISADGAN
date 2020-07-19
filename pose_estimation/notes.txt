@@ -19,3 +19,11 @@ Reference: https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD
 
 Intepreting keypoints: https://github.com/facebookresearch/detectron2/issues/1373
 https://detectron2.readthedocs.io/tutorials/models.html#model-output-format
+
+Different detectron configurations:
+https://github.com/facebookresearch/detectron2/blob/master/configs/COCO-Keypoints/keypoint_rcnn_X_101_32x8d_FPN_3x.yaml
+
+There are 20 different types of segments. 
+
+https://github.com/Guanghan/lighttrack - pose tracking 
+https://github.com/ZhaoJ9014/face.evoLVe.PyTorch - face detection
