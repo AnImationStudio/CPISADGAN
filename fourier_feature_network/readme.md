@@ -1,0 +1,1 @@
+docker run --gpus all -it --shm-size=1024m -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder rappdw/docker-jax

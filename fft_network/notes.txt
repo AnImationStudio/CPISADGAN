@@ -1,0 +1,48 @@
+- Low dimensional input
+- TRansform matrix is a fopurier matirx or fourier transforms
+- The transform matrix could be a 
+
+- Progressive learning networks
+- Learning rates are forced to decrease as we proceed down the weights
+	- Thereby forcing to learn low frequencey compinent first and then higher frequency networks
+
+- Can the kernal function can also be learnit like instead of sin/cos 
+	- use wavelets or gaussian wavelets, gaussian functions
+	- Can we make the frequency components to be hyper parameters or backpropagated
+	- Overfitting for the available data instead of having separate validation and test dataset
+	- Can we use that for compressions. Smaller network low dimensional iinputs
+		- Send weights as it learns and keep sending the differential weights over time there by having a progressive encoding
+	- Each layer has an embedding layer which is forced to learn a multi-frequency component by controlling the learning rate progressively i.e. learning rate updates progressively reduces across multiple embedding layers
+
+- Can we also adapt the weights??
+
+- Try using it for active learning
+- 2D image learning using low frequency followed by high frequency i.e. a downsampled image to high dimension images
+
+- Can we extend this to classification setup 
+	- Can we replace 2D convolution with this idea like kernal
+	-
+
+- Can we add a condition for smoothness instead of progressive learning rate for lower to high frequencu component
+
+Can we simulate the nerf problem using images? i.e. output is a 2D image input is projected histogram or alpha values or outline
+	- Try to find the minimum number of projections to reconstruct the 2D image?
+	- CT imaging problem?
+
+Having separate network for alpha and color information?
+
+
+- Let there be multiple input signals s1, s2, s3
+- the embedding layer weights gets updated for all signals s1,2,3 however the interr weight matrix is the value shared with networks progressively such that embedding layer is called the kernal and shared between encoder and decoder while the inter weight matrix is overfitted and transimitted for S1, s2 and s3 separately
+
+Try minimizing number of weights for all the networks and error
+
+Active learning, Bayesian optimization and compression applications for various dimensional inputs
+
+List of things to be done:
+- Find the camera matrix for 3D models in squid
+- 
+
+
+scp -r /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data/tiger njayakodi_dg@134.121.66.111:/local/data/nitthilan/source_code/virtual_studio/data/
+

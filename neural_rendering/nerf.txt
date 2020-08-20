@@ -4,13 +4,17 @@ run_rsync; fswatch -o /Users/kannappanjayakodinitthilan/Documents/myfolder/proje
 
 
 
-sudo nvidia-docker exec -it a108257e9eac /bin/bash
+sudo nvidia-docker exec -it 251d7795f04a /bin/bash
+docker exec -it 0e5f7822b717 /bin/bash
+
+
+
 
 
 sudo docker run -it -ti --runtime=nvidia -e NVIDIA_DRIVER_CAPABILITIES=compute,utility -e NVIDIA_VISIBLE_DEVICES=all -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
 
 
-sudo docker run --gpus all -it -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
+docker run --gpus all -it --shm-size=1024m -v /local/data/nitthilan/:/nitthilan  -v ~/myfolder/:/nitthilan_myfolder pytorch/pytorch:1.3-cuda10.1-cudnn7-devel
 
 
 
@@ -31,6 +35,65 @@ https://stackoverflow.com/questions/57066162/how-to-get-docker-to-recognize-nvid
 Things to know:
 - camera angle: https://en.wikipedia.org/wiki/Angle_of_view
 - https://stackoverflow.com/questions/6392739/what-does-the-at-symbol-do-in-python - matrix multiplication @
+
+
+apt-get install libglib2.0-0
+apt-get install -y libsm6 libxext6 libxrender-dev
+
+pip install --upgrade torch torchvision
+https://github.com/aliutkus/torchsearchsorted
+
+
+python cache_dataset.py --datapath cache/nerf_synthetic/lego/ --savedir cache/legocache/legofull --num-random-rays 8192 --num-variations 50 --type blender
+
+python cache_dataset.py --datapath cache/nerf_llff_data/fern/ --savedir cache/nerf_llff_data/ferncache/ --num-random-rays 8192 --num-variations 50 --type llff
+
+export CUDA_VISIBLE_DEVICES=1; python train_nerf.py --config config/lego.yml --load-checkpoint path/to/checkpoint.ckpt
+
+python eval_nerf.py --config pretrained/lego-lowres/config.yml --checkpoint pretrained/lego-lowres/checkpoint199999.ckpt --savedir cache/rendered/lego-lowres
+
+python eval.py \
+   --root_dir ../nerf-pytorch/cache/nerf_llff_data/fern/ \
+   --dataset_name llff --scene_name fern \
+   --img_wh 400 400 --N_importance 64 --ckpt_path ckpts/exp/epoch=29.ckpt
+
+python eval.py \
+   --root_dir ../nerf-pytorch/cache/nerf_synthetic/lego/ \
+   --dataset_name blender --scene_name lego \
+   --img_wh 400 400 --N_importance 64 --ckpt_path ckpts/exp/epoch=15.ckpt \
+   --num_gpus 2
+
+
+python train.py    --dataset_name blender    --root_dir ../nerf-pytorch/cache/nerf_synthetic/lego/    --N_importance 64 --img_wh 400 400 --noise_std 0    --num_epochs 16 --batch_size 1024    --optimizer adam --lr 5e-4    --lr_scheduler steplr --decay_step 2 4 8 --decay_gamma 0.5    --exp_name exp --num_gpus 2
+
+
+python train.py    --dataset_name shapenet    --root_dir ../data/shapenet/    --N_importance 64 --img_wh 320 240 --noise_std 0    --num_epochs 100 --batch_size 1024    --optimizer adam --lr 5e-4    --lr_scheduler steplr --decay_step 2 4 8 --decay_gamma 0.5    --exp_name full_data --num_gpus 2
+
+python train.py --dataset_name shapenet --root_dir ../data/shapenet_white/ \
+--N_importance 64 --img_wh 320 240 --noise_std 0 --num_epochs 20 \
+--batch_size 1024 --optimizer adam --lr 5e-4 --lr_scheduler cosine \
+--exp_name white_96_images_mask --num_gpus 2
+
+
+
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+CUDA_VISIBLE_DEVICES: [0,1]
+initializing ddp: GLOBAL_RANK: 0, MEMBER: 1/2
+initializing ddp: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=ddp
+All DDP processes registered. Starting ddp with 2 processes
+----------------------------------------------------------------------------------------------------
+Epoch 16: 100%|###########################| 3601/3601 [17:52<00:00,  3.36it/s, loss=0.030, v_num=36, train_psnr=16.9, val_loss=0.0261, val_psnr=18.8]
+
+
+python eval.py \
+   --root_dir ../data/shapenet/ \
+   --dataset_name turbosquid --scene_name tiger \
+   --img_wh 320 240 --N_importance 64 --scene_name --ckpt_path ckpts/exp/epoch\=14.ckpt
+
+num gpus : https://github.com/kwea123/nerf_pl/issues/26
 
 
 

@@ -1,0 +1,16 @@
+
+Under standing camera parameters:
+- https://pyrender.readthedocs.io/en/latest/examples/cameras.html - pyrender camera
+- https://www.scratchapixel.com/index.php?redirect - Understanding computer graphics
+	- https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays
+
+
+
+scp -r  njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code//virtual_studio/data/shapenet/images ../../data/shapenet/
+
+scp -r  njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code//virtual_studio/data/shapenet/render_airplane_2.pkl ../../data/shapenet/
+
+
+scp -r  njayakodi_dg@134.121.66.109:/local/data/nitthilan/source_code//virtual_studio/data/shapenet/images/ /Users/kannappanjayakodinitthilan/Documents/myfolder/project_devan/aws_workspace/source/virtual_studio/data/shapenet/
+
+

@@ -12,7 +12,7 @@ Reproduction of Controllable Person Image Synthesis with Attribute-Decomposed GA
 [Repo](https://github.com/AnImationStudio?source=organization_create)
 
 Reusing code for generation of input from the following repositories:
-- Controllable Person Image Synthesis with Attribute-Decomposed GAN [paper](https://menyifang.github.io/projects/ADGAN/ADGAN_files/Paper_ADGAN_CVPR2020.pdf), [code - not updated](https://github.com/menyifang/ADGAN)
+- Controllable Person Image Synthesis with Attribute-Decomposed GAN [paper](https://menyifang.github.io/projects/ADGAN/ADGAN_files/Paper_ADGAN_CVPR2020.pdf), [code](https://github.com/menyifang/ADGAN)
 - Part segmentation is done using Pyramid Scene Parsing Network - [paper](https://arxiv.org/abs/1612.01105), [pytorch](https://github.com/hyk1996/Single-Human-Parsing-LIP), [dataset](http://sysu-hcp.net/lip/)
 - Pose estimation using Pose-Transfer - [paper](http://openaccess.thecvf.com/content_CVPR_2019/papers/Zhu_Progressive_Pose_Attention_Transfer_for_Person_Image_Generation_CVPR_2019_paper.pdf), [pytorch](https://github.com/tengteng95/Pose-Transfer)
 <!-- - Pose estimation is done through detectron2 DensePose - [paper](),  -->
@@ -44,6 +44,10 @@ Other references:
 - VFX experiments [blog](http://neuralvfx.com/augmented-reality/ar-facial-pose-estimation/)
 
 - Rigging - RigNet [paper](https://arxiv.org/pdf/2005.00559.pdf), [youtube](https://www.youtube.com/watch?v=J90VETgWIDg), [project](https://zhan-xu.github.io/rig-net/), [code-not available](https://github.com/zhan-xu/RigNet), [dattaset](https://umass.app.box.com/s/448zm5iw1ewbq4l2kdll6q99v5y3q4pw) - Predicting Animation Skeletons for 3D Articulated Models via Volumetric Nets [paper](https://arxiv.org/pdf/1908.08506.pdf), [supplement](https://people.cs.umass.edu/~zhanxu/papers/AnimSkelVolNet_supp.pdf), [code](https://github.com/zhan-xu/AnimSkelVolNet)
+- Skeleton-Aware Networks for Deep Motion Retargeting - [project](https://deepmotionediting.github.io/retargeting), [code](https://github.com/DeepMotionEditing/deep-motion-editing)
+- Maximo Dataset : https://github.com/ChrisWu1997/2D-Motion-Retargeting/blob/master/dataset/Guide%20For%20Downloading%20Mixamo%20Data.md
+- https://www.youtube.com/watch?v=KLjTU0yKS00 - IK Rig: Procedural Pose Animation
+
 
 - what is skin weights in animation - NeuroSkinning - [paper](http://www.youyizheng.net/docs/neuroskinning-final-opt.pdf)
 	- autorigging deeplearning
@@ -82,7 +86,16 @@ List of ideas:
 - Crown simulatitons for car orientation detection deep learning, car videos dataset, trees dataset
 - pytorch3d to render outputs with known input and then learning a generator to approximate the output
 - SPADE based image painting - bg generation and then add humans
+- Can individual parts be learnt separately and so it is easy to integrate them as a single pose based on any pose?
+	- like only the hand, leg, face etc and they all are linked together or tied to gether by a pose
+	- Make it work for any kind of input images
 
 List of ideas 3D sculpting:
 - 3d mesh models pixar from the movies extracting the object from differnt views - https://www.renderhub.com/lykomodels/left-shark, search google 3d mesh models 
+- 
+
+Questions:
+- Can we encode the time along with position and make a animated video?
+- Can we take photographs of buildings and use it to create 3D Models?
+- Can we take photos of players and deform them into whatever shape we want?
 - 

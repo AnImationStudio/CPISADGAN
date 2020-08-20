@@ -1,0 +1,5 @@
+
+
+https://rajatvd.github.io/NTK/ - explanation of neural networks as tangent kernal approximation
+https://www.youtube.com/watch?v=NNPCk2gvTnI&t=509s - Learning and Generalization in Over-parametrized Neural Networks, Going Beyond Kernels
+https://www.youtube.com/watch?v=raT2ECrvbag - Neural Tangent Kernel: Convergence and Generalization in Neural Networks
